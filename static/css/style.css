@@ -1,0 +1,519 @@
+/* =====================================================
+   GLOBAL
+   ===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef2f7;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =====================================================
+   MAIN APP
+   ===================================================== */
+
+.app-container {
+    width: 95%;
+    max-width: 1000px;
+    height: 92vh;
+
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.header {
+    min-height: 80px;
+
+    padding: 15px 25px;
+
+    background: #172554;
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+}
+
+.brand-text h1 {
+    font-size: 21px;
+    margin-bottom: 5px;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    font-size: 13px;
+
+    opacity: 0.9;
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+
+    background: #22c55e;
+
+    border-radius: 50%;
+
+    display: inline-block;
+}
+
+
+/* =====================================================
+   CLEAR BUTTON
+   ===================================================== */
+
+.clear-button {
+    border: none;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    color: white;
+
+    padding: 10px 14px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition: 0.2s ease;
+}
+
+.clear-button:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+
+/* =====================================================
+   CHAT CONTAINER
+   ===================================================== */
+
+.chat-container {
+    flex: 1;
+
+    padding: 25px;
+
+    overflow-y: auto;
+
+    background: #f8fafc;
+
+    scroll-behavior: smooth;
+}
+
+
+/* =====================================================
+   MESSAGE
+   ===================================================== */
+
+.message {
+    display: flex;
+
+    gap: 12px;
+
+    margin-bottom: 22px;
+
+    max-width: 85%;
+}
+
+.user-message {
+    margin-left: auto;
+
+    flex-direction: row-reverse;
+}
+
+.message-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-message .message-wrapper {
+    align-items: flex-end;
+}
+
+
+/* =====================================================
+   AVATAR
+   ===================================================== */
+
+.avatar {
+    width: 38px;
+    height: 38px;
+
+    min-width: 38px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 19px;
+
+    background: #e2e8f0;
+}
+
+.assistant-avatar {
+    background: #dbeafe;
+}
+
+.user-avatar {
+    background: #e0e7ff;
+}
+
+
+/* =====================================================
+   MESSAGE LABEL
+   ===================================================== */
+
+.message-label {
+    font-size: 12px;
+
+    font-weight: bold;
+
+    color: #64748b;
+
+    margin-bottom: 5px;
+}
+
+
+/* =====================================================
+   MESSAGE CONTENT
+   ===================================================== */
+
+.message-content {
+    padding: 13px 16px;
+
+    border-radius: 16px;
+
+    line-height: 1.5;
+
+    font-size: 15px;
+
+    word-wrap: break-word;
+}
+
+.assistant-message .message-content {
+    background: white;
+
+    color: #1e293b;
+
+    border: 1px solid #e2e8f0;
+
+    border-top-left-radius: 4px;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+}
+
+.user-message .message-content {
+    background: #2563eb;
+
+    color: white;
+
+    border-top-right-radius: 4px;
+}
+
+
+/* =====================================================
+   MESSAGE TIME
+   ===================================================== */
+
+.message-time {
+    font-size: 10px;
+
+    color: #94a3b8;
+
+    margin-top: 5px;
+}
+
+
+/* =====================================================
+   TYPING INDICATOR
+   ===================================================== */
+
+.typing-indicator {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 0 25px 12px;
+
+    background: #f8fafc;
+}
+
+.hidden {
+    display: none;
+}
+
+.typing-bubble {
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 15px;
+
+    padding: 11px 15px;
+
+    display: flex;
+
+    gap: 4px;
+}
+
+.typing-bubble span {
+    width: 7px;
+    height: 7px;
+
+    background: #64748b;
+
+    border-radius: 50%;
+
+    animation: typing 1.2s infinite;
+}
+
+.typing-bubble span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-bubble span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+
+    0%,
+    60%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+
+    30% {
+        transform: translateY(-5px);
+        opacity: 1;
+    }
+}
+
+
+/* =====================================================
+   INPUT AREA
+   ===================================================== */
+
+.input-container {
+    padding: 15px 20px;
+
+    background: white;
+
+    border-top: 1px solid #e2e8f0;
+}
+
+.input-wrapper {
+    display: flex;
+
+    gap: 10px;
+}
+
+#user-input {
+    flex: 1;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 12px;
+
+    padding: 13px 15px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+#user-input:focus {
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+#send-button {
+    width: 50px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+#send-button:hover {
+    background: #1d4ed8;
+}
+
+#send-button:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+}
+
+.input-hint {
+    text-align: center;
+
+    font-size: 11px;
+
+    color: #94a3b8;
+
+    margin-top: 7px;
+}
+
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+.app-footer {
+    text-align: center;
+
+    font-size: 11px;
+
+    color: #94a3b8;
+
+    padding: 7px;
+
+    background: white;
+}
+
+
+/* =====================================================
+   SCROLLBAR
+   ===================================================== */
+
+.chat-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+
+    border-radius: 10px;
+}
+
+
+/* =====================================================
+   RESPONSIVE DESIGN
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    body {
+        align-items: stretch;
+    }
+
+    .app-container {
+        width: 100%;
+        height: 100vh;
+
+        border-radius: 0;
+    }
+
+    .header {
+        padding: 12px 15px;
+    }
+
+    .brand-text h1 {
+        font-size: 16px;
+    }
+
+    .logo {
+        width: 42px;
+        height: 42px;
+
+        font-size: 23px;
+    }
+
+    .clear-button {
+        font-size: 11px;
+
+        padding: 8px 10px;
+    }
+
+    .chat-container {
+        padding: 18px 12px;
+    }
+
+    .message {
+        max-width: 92%;
+    }
+
+    .message-content {
+        font-size: 14px;
+    }
+
+    .input-container {
+        padding: 12px;
+    }
+
+    .app-footer {
+        display: none;
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "python": {
+        "keywords": ["python", "what is python"],
+        "answer": "Python is a high-level, interpreted programming language known for its simple syntax and wide range of applications such as web development, data analysis, automation, artificial intelligence, and machine learning."
+    },
+
+    "sql": {
+        "keywords": ["sql", "what is sql"],
+        "answer": "SQL stands for Structured Query Language. It is used to create, manage, retrieve, and analyze data stored in relational databases."
+    },
+
+    "html": {
+        "keywords": ["html", "what is html"],
+        "answer": "HTML stands for HyperText Markup Language. It is the standard markup language used to structure content on web pages."
+    },
+
+    "css": {
+        "keywords": ["css", "what is css"],
+        "answer": "CSS stands for Cascading Style Sheets. It is used to control the appearance, layout, colors, fonts, and overall presentation of web pages."
+    },
+
+    "flask": {
+        "keywords": ["flask", "what is flask"],
+        "answer": "Flask is a lightweight Python web framework used to build web applications and APIs."
+    },
+
+    "artificial intelligence": {
+        "keywords": ["artificial intelligence", "what is artificial intelligence", "what is ai"],
+        "answer": "Artificial Intelligence, or AI, is a field of computer science focused on creating systems that can perform tasks that normally require human intelligence, such as understanding language, recognizing patterns, and making decisions."
+    },
+
+    "machine learning": {
+        "keywords": ["machine learning", "what is machine learning", "ml"],
+        "answer": "Machine Learning is a branch of Artificial Intelligence in which computers learn patterns from data and use those patterns to make predictions or decisions."
+    },
+
+    "dbms": {
+        "keywords": ["dbms", "what is dbms", "database management system"],
+        "answer": "DBMS stands for Database Management System. It is software used to create, store, organize, retrieve, and manage data in databases."
+    },
+
+    "blockchain": {
+        "keywords": ["blockchain", "what is blockchain"],
+        "answer": "Blockchain is a distributed digital ledger that records transactions in linked blocks. Its design makes stored records difficult to alter without detection."
+    },
+
+    "data analysis": {
+        "keywords": ["data analysis", "what is data analysis"],
+        "answer": "Data analysis is the process of inspecting, cleaning, transforming, and interpreting data to discover useful information, patterns, and insights."
+    },
+
+    "computer engineering": {
+        "keywords": ["computer engineering", "what is computer engineering"],
+        "answer": "Computer Engineering is a field that combines computer science and electrical engineering to design and develop computer hardware, software, networks, and computing systems."
+    }
+}

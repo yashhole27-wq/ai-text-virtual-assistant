@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Text Virtual Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- ================= HEADER ================= -->
+        <header class="header">
+
+            <div class="brand-section">
+
+                <div class="logo">
+                    🤖
+                </div>
+
+                <div class="brand-text">
+                    <h1>AI Text Virtual Assistant</h1>
+
+                    <div class="status">
+                        <span class="status-dot"></span>
+                        <span>Online</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <button id="clear-button" class="clear-button">
+                🗑️ Clear Chat
+            </button>
+
+        </header>
+
+
+        <!-- ================= CHAT AREA ================= -->
+        <main class="chat-container">
+
+            <!-- Welcome Message -->
+            <div class="message assistant-message">
+
+                <div class="avatar assistant-avatar">
+                    🤖
+                </div>
+
+                <div class="message-wrapper">
+
+                    <div class="message-label">
+                        Assistant
+                    </div>
+
+                    <div class="message-content">
+                        Hello! 👋 I'm your AI Text Virtual Assistant.
+                        <br><br>
+                        I can help you with dates, time, calculations,
+                        general questions, and technical topics.
+                        <br><br>
+                        Try asking me:
+                        <br>
+                        • What is Python?
+                        <br>
+                        • What time is it?
+                        <br>
+                        • What day is tomorrow?
+                        <br>
+                        • 25 plus 8
+                    </div>
+
+                    <div class="message-time">
+                        Just now
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+
+        <!-- ================= TYPING INDICATOR ================= -->
+        <div id="typing-indicator" class="typing-indicator hidden">
+
+            <div class="avatar assistant-avatar">
+                🤖
+            </div>
+
+            <div class="typing-bubble">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= INPUT AREA ================= -->
+        <footer class="input-container">
+
+            <div class="input-wrapper">
+
+                <input
+                    type="text"
+                    id="user-input"
+                    placeholder="Type your message..."
+                    autocomplete="off"
+                    maxlength="500"
+                >
+
+                <button id="send-button" title="Send message">
+                    ➤
+                </button>
+
+            </div>
+
+            <p class="input-hint">
+                Press <strong>Enter</strong> to send • Maximum 500 characters
+            </p>
+
+        </footer>
+
+
+        <!-- ================= FOOTER ================= -->
+        <div class="app-footer">
+            AI Text Virtual Assistant • Built with Python & Flask
+        </div>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
