@@ -1,86 +1,82 @@
 # 🤖 AI-Based Text Virtual Assistant
 
-A lightweight, text-based virtual assistant built with **Python and Flask**. The assistant can understand natural-language queries, perform calculations, provide date and time information, remember the user's name, and answer technical questions using a local knowledge base.
+A lightweight, web-based **AI Text Virtual Assistant** built using **Python, Flask, Ollama, and Qwen 2.5**. The assistant provides natural-language responses through a clean chat interface and supports conversation memory, knowledge-based responses, and date/time information.
+
+The application runs **locally**, using a locally installed AI model instead of requiring a paid cloud AI API.
+
+---
 
 ## 📌 Project Overview
 
-The AI-Based Text Virtual Assistant is a web-based assistant designed to provide useful responses through a simple and professional chat interface.
+The AI-Based Text Virtual Assistant is a local web application designed to provide helpful responses through a simple and professional chat interface.
 
-Unlike voice assistants, this project focuses entirely on **text-based interaction** and runs locally without requiring paid AI APIs.
+The project focuses on **text-based interaction** and demonstrates how a Python backend can be connected with a locally running Large Language Model (LLM).
 
-The project demonstrates practical implementation of:
+### The project demonstrates:
 
 * Python programming
 * Flask web development
-* Natural-language pattern matching
+* Local AI/LLM integration
+* Ollama model integration
+* Natural-language interaction
 * Persistent conversation memory
-* Date and time processing
-* Safe mathematical calculations
 * JSON-based knowledge management
+* Date and time processing
 * HTML, CSS, and JavaScript frontend development
-* Input validation and error handling
+* Input validation
+* Error handling
+* Git and GitHub workflow
+
+---
 
 ## ✨ Features
 
-### 💬 General Conversation
+### 💬 AI Chat
 
-* Greetings
-* Thank-you responses
-* Good-night responses
-* "How are you?"
-* "Who are you?"
-* "What can you do?"
-* AI/robot-related questions
-* Creator-related questions
-* Simple jokes
+The assistant can answer general and technical questions using the locally running **Qwen 2.5:3B** model.
 
-### 🕐 Date & Time
+Example:
 
-The assistant can provide:
+```text
+What is Python?
+Explain machine learning.
+What is SQL?
+What is Flask?
+```
 
-* Current time
-* Current date
-* Current day
-* Tomorrow's date
-* Yesterday's date
-* Next week's date
-* Previous week's date
-* Date after a specified number of days
-* Date a specified number of days ago
-* Weekday for a specific date
-* Number of days until a specified date
-
-### 🧮 Calculator
-
-Supports natural-language calculations such as:
-
-* `25 plus 8`
-* `100 minus 37`
-* `12 multiplied by 6`
-* `50 divided by 5`
-* `10 times 5`
-* Basic arithmetic expressions
-
-The calculator uses a safe expression parser rather than Python's `eval()` function.
+---
 
 ### 🧠 Conversation Memory
 
-The assistant can remember the user's name during conversations.
+The assistant stores recent conversations locally in `memory.json`.
 
-Examples:
+This allows the assistant to use recent conversation context when answering follow-up questions.
 
-* `My name is Yash`
-* `I am Yash`
-* `Call me Yash`
-* `Remember my name is Yash`
+Example:
 
-The memory is stored locally in `memory.json`.
+```text
+User: My favorite programming language is Python.
 
-> `memory.json` is excluded from GitHub using `.gitignore` because it may contain personal information.
+User: What is my favorite programming language?
+
+Assistant: Your favorite programming language is Python.
+```
+
+The application keeps a limited number of recent conversations to help maintain good response speed.
+
+> `memory.json` is excluded from GitHub using `.gitignore` because it can contain personal conversation data.
+
+---
 
 ### 📚 Knowledge Base
 
-The assistant includes a local knowledge base covering technical topics such as:
+The project includes a local knowledge base stored in:
+
+```text
+knowledge.json
+```
+
+The knowledge base can contain information about topics such as:
 
 * Python
 * SQL
@@ -94,32 +90,73 @@ The assistant includes a local knowledge base covering technical topics such as:
 * Data Analysis
 * Computer Engineering
 
-The knowledge base can be expanded by adding new topics to `knowledge.json`.
+The knowledge base can be expanded by adding additional information to `knowledge.json`.
 
-### 🔐 Security & Error Handling
+---
+
+### 🕐 Date & Time
+
+The assistant can provide current date and time information.
+
+Examples:
+
+```text
+What is today's date?
+
+What time is it?
+
+What is the current date?
+
+What is the current time?
+```
+
+The application also includes a dedicated date/time endpoint.
+
+---
+
+### ⚡ Fast Local AI Responses
+
+The project is optimized to keep the AI prompt lightweight by using:
+
+* Recent conversation context
+* Local knowledge
+* A lightweight Qwen model
+* Limited response length
+
+This helps maintain fast responses while running the AI locally.
+
+---
+
+### 🛡️ Input Validation & Error Handling
 
 The application includes:
 
-* JSON request validation
-* Message type validation
+* Empty message validation
 * Maximum message length validation
-* Safe mathematical expression evaluation
-* Division-by-zero handling
-* Exponentiation protection
+* JSON request validation
+* Ollama error handling
 * File loading error handling
-* Friendly error responses
+* Memory save error handling
+* Friendly error messages
+
+---
 
 ## 🛠️ Technologies Used
 
-| Technology | Purpose                         |
-| ---------- | ------------------------------- |
-| Python     | Backend logic                   |
-| Flask      | Web framework                   |
-| HTML       | Web page structure              |
-| CSS        | User interface styling          |
-| JavaScript | Chat interaction                |
-| JSON       | Knowledge base and local memory |
-| Git        | Version control                 |
+| Technology  | Purpose                         |
+| ----------- | ------------------------------- |
+| Python      | Backend programming             |
+| Flask       | Web framework                   |
+| Ollama      | Local AI model runtime          |
+| Qwen 2.5:3B | Local language model            |
+| HTML        | Web page structure              |
+| CSS         | User interface styling          |
+| JavaScript  | Chat interaction                |
+| JSON        | Knowledge base and local memory |
+| Git         | Version control                 |
+| GitHub      | Project hosting                 |
+
+---
 
 ## 📂 Project Structure
 
@@ -128,6 +165,7 @@ ai-text-virtual-assistant/
 │
 ├── app.py
 ├── knowledge.json
+├── memory.json
 ├── requirements.txt
 ├── README.md
 ├── .gitignore
@@ -139,13 +177,13 @@ ai-text-virtual-assistant/
 │   └── js/
 │       └── script.js
 │
-├── templates/
-│   └── index.html
-│
-└── memory.json
+└── templates/
+    └── index.html
 ```
 
-> `memory.json` is created/used locally and is intentionally excluded from GitHub.
+> `memory.json` is used locally and should not be uploaded to GitHub because it may contain personal conversation data.
+
+---
 
 ## 🚀 How to Run the Project
 
@@ -175,44 +213,69 @@ python -m venv .venv
 .venv\Scripts\activate
 ```
 
-### 5. Install dependencies
+### 5. Install Python dependencies
 
 ```powershell
 pip install -r requirements.txt
 ```
 
-### 6. Run the application
+### 6. Install and run Ollama
+
+Install Ollama on your system and make sure the required model is available:
+
+```powershell
+ollama pull qwen2.5:3b
+```
+
+Check the installed model:
+
+```powershell
+ollama list
+```
+
+### 7. Run the Flask application
 
 ```powershell
 python app.py
 ```
 
-### 7. Open the application
+### 8. Open the application
 
-Open the local Flask address shown in the terminal, usually:
+Open the following address in your browser:
 
 ```text
 http://127.0.0.1:5000
 ```
 
+---
+
 ## 💡 Example Queries
 
-Try asking:
+Try asking the assistant:
 
 ```text
 Hello
-What time is it?
-What is today's date?
-What day is tomorrow?
-What is 25 plus 8?
-What is 100 divided by 5?
-My name is Yash
-What is my name?
+
 What is Python?
+
+Explain machine learning.
+
 What is SQL?
-What is Machine Learning?
-How many days until 25/12/2026?
+
+What is Flask?
+
+What is artificial intelligence?
+
+What is my favorite programming language?
+
+What do you know about me?
+
+What is today's date?
+
+What time is it?
 ```
+
+---
 
 ## 🎯 Learning Outcomes
 
@@ -221,27 +284,34 @@ Through this project, I gained practical experience in:
 * Developing a Flask-based web application
 * Connecting frontend and backend components
 * Handling HTTP requests and JSON data
-* Implementing natural-language pattern matching
-* Working with regular expressions
-* Managing persistent local data
-* Building a safe calculator
+* Integrating a local Large Language Model
+* Working with Ollama
+* Using persistent local data
+* Building a JSON-based knowledge system
+* Managing conversation memory
 * Designing a responsive web interface
 * Implementing input validation
+* Handling application errors
 * Using Git and GitHub for project management
+
+---
 
 ## 🔮 Future Enhancements
 
 Possible future improvements include:
 
-* Integration with a free/low-cost AI API
-* More advanced natural-language understanding
-* Larger knowledge base
-* User authentication
-* Conversation history
+* More advanced contextual conversations
+* Larger and more structured knowledge base
 * Database integration
+* User authentication
+* Conversation history management
 * Voice input and output
-* Deployment to a cloud platform
-* More intelligent contextual conversations
+* Cloud deployment
+* Improved natural-language understanding
+* Additional AI models
+* More advanced Retrieval-Augmented Generation (RAG)
+
+---
 
 ## 👨‍💻 Author
 
@@ -253,4 +323,15 @@ Savitribai Phule Pune University
 
 ---
 
-⭐ If you find this project useful, consider giving the repository a star!
+## ⭐ Project
+
+If you find this project useful, consider giving the repository a ⭐ on GitHub.
+
+```
+
+### After you replace it
+
+Save with **Ctrl + S**.
+
+Then we have only the **final GitHub cleanup** left. We won't make any more unnecessary code changes. 🚀
+```
